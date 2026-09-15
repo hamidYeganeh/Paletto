@@ -1,12 +1,12 @@
 import localFont from "next/font/local"
 import type { Metadata } from "next"
-import { headers } from "next/headers"
 import { NextIntlClientProvider } from "next-intl"
 import { getLocale, getMessages, getTranslations } from "next-intl/server"
 
 import "@workspace/ui/globals.css"
 import "./studio.css"
 import "./marketplace.css"
+import "./archive.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@workspace/ui/lib/utils"
 
@@ -26,15 +26,7 @@ const numeralFont = localFont({
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Meta")
-  const requestHeaders = await headers()
-  const host =
-    requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host")
-  const protocol =
-    requestHeaders.get("x-forwarded-proto") ??
-    (host?.startsWith("localhost") ? "http" : "https")
-  const metadataBase = new URL(
-    host ? `${protocol}://${host}` : "http://localhost:3000"
-  )
+  const metadataBase = new URL(process.env.APP_ORIGIN || "http://localhost:3000")
   const title = t("title")
   const description = t("description")
 

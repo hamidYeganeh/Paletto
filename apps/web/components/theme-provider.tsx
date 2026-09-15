@@ -1,19 +1,22 @@
 "use client"
 
 import * as React from "react"
+import { usePathname } from "next/navigation"
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
 
 function ThemeProvider({
   children,
   ...props
 }: React.ComponentProps<typeof NextThemesProvider>) {
+  const isArtworkPage = usePathname().startsWith("/artworks/")
   return (
     <NextThemesProvider
       attribute="class"
       defaultTheme="system"
-      enableSystem
       disableTransitionOnChange
       {...props}
+      forcedTheme={isArtworkPage ? undefined : props.forcedTheme}
+      enableSystem={isArtworkPage || (props.enableSystem ?? true)}
     >
       <ThemeHotkey />
       {children}

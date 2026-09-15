@@ -1,0 +1,317 @@
+.ml {
+  position: relative;
+  background: #f2efe8;
+  color: #272823;
+  font-family: inherit;
+  isolation: isolate;
+}
+.ml * {
+  box-sizing: border-box;
+}
+.ml button,
+.ml a {
+  -webkit-tap-highlight-color: transparent;
+}
+.ml button {
+  cursor: pointer;
+}
+.ml button:focus-visible,
+.ml a:focus-visible {
+  outline: 2px solid #8a6940;
+  outline-offset: 6px;
+}
+.ml-stage {
+  position: relative;
+  height: 100svh;
+  min-height: 500px;
+  overflow: hidden;
+  background: #30291f;
+}
+.ml-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.ml-room {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 46%;
+  background: #30291f url("/images/artwork-gallery-industrial-v2.png") center
+    center / cover no-repeat;
+  will-change: transform;
+}
+.ml-painting {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  translate: -50% -50%;
+  width: min(48vw, calc(46svh * var(--artwork-aspect)));
+  aspect-ratio: var(--artwork-aspect);
+  transform-origin: center;
+  padding: 6px;
+  background: linear-gradient(
+    135deg,
+    #b39b74,
+    #69573d 40%,
+    #a38b65 70%,
+    #493e2d
+  );
+  border: 1px solid #65543c;
+  box-shadow:
+    1px 2px 2px #24160966,
+    3px 9px 13px #34261840,
+    9px 19px 30px #34261826;
+  will-change: transform;
+}
+.ml-painting img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px #2d271e;
+}
+.ml-header {
+  position: absolute;
+  inset: 28px 3.5% auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  color: #272823;
+}
+.ad-brand {
+  padding: 3px 10px;
+  background: #f5f1e9eb;
+  border-radius: 2px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+}
+.ad-details-link {
+  color: inherit;
+  text-decoration: none;
+  font-size: 12px;
+  background: #f5f1e9eb;
+  border-radius: 2px;
+  padding: 9px 12px;
+}
+.ad-hint {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+  color: #fff8ec;
+  text-shadow:
+    0 1px 5px #000,
+    0 0 14px #000b;
+}
+.ad-hint span {
+  display: block;
+  font-size: 24px;
+  margin-top: 14px;
+}
+.ad-information {
+  position: relative;
+  background: #f2efe8;
+  color: #232823;
+  min-height: 100svh;
+  padding: 100px 7% 48px;
+  scroll-margin-top: 0;
+}
+.ad-information-inner {
+  max-width: 1200px;
+  margin: auto;
+}
+.ad-eyebrow {
+  font-size: 12px;
+  color: #73776e;
+  margin: 0 0 36px;
+}
+.ad-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 32px;
+  border-bottom: 1px solid #ced0c5;
+  padding-bottom: 45px;
+}
+.ad-heading h1 {
+  font-size: clamp(40px, 6vw, 84px);
+  line-height: 1.4;
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  margin: 0;
+}
+.ad-heading p {
+  font-size: 18px;
+  margin: 0;
+  line-height: 1.9;
+}
+.ad-heading p span {
+  display: block;
+  color: #73776e;
+  font-size: 14px;
+}
+.ad-body {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 12%;
+  margin: 64px 0 90px;
+}
+.ad-body h2 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 20px;
+  color: #73776e;
+}
+.ad-body article p {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 2.1;
+  margin: 0;
+}
+.ad-body dl {
+  margin: 0;
+}
+.ad-body dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid #ced0c5;
+  padding: 19px 0;
+  font-size: 14px;
+}
+.ad-body dt {
+  color: #73776e;
+}
+.ad-body dd {
+  margin: 0;
+  text-align: left;
+}
+.ad-footer {
+  border-top: 1px solid #ced0c5;
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 13px;
+}
+.ad-footer a,
+.ad-footer button {
+  color: inherit;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+}
+
+@media (max-width: 650px) {
+  .ml-stage {
+    min-height: 440px;
+  }
+  .ml-painting {
+    width: min(78vw, calc(48svh * var(--artwork-aspect)));
+    padding: 4px;
+  }
+  .ml-header {
+    top: 24px;
+    left: 7%;
+    right: 7%;
+  }
+  .ad-information {
+    padding: 60px 7% 32px;
+  }
+  .ad-heading {
+    display: block;
+    padding-bottom: 28px;
+  }
+  .ad-heading p {
+    margin-top: 20px;
+  }
+  .ad-body {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin: 36px 0 56px;
+  }
+  .ad-footer {
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ml-room,
+  .ml-painting {
+    will-change: auto;
+  }
+}
+
+.ad-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ad-theme-toggle {
+  font: inherit;
+  font-size: 12px;
+  line-height: inherit;
+  color: #272823;
+  background: #f5f1e9eb;
+  border: 0;
+  border-radius: 2px;
+  padding: 9px 12px;
+}
+.ad-show-day {
+  display: none;
+}
+.dark .ad-show-night {
+  display: none;
+}
+.dark .ad-show-day {
+  display: inline;
+}
+.dark .ad .ml-room {
+  background-color: #16120f;
+  background-image: url("/images/artwork-gallery-industrial-night.png");
+}
+.dark .ad,
+.dark .ad .ml-stage {
+  background-color: #16120f;
+}
+.dark .ad .ml-header {
+  color: #f4eadb;
+}
+.dark .ad-brand,
+.dark .ad-details-link,
+.dark .ad-theme-toggle {
+  background: #211b16eb;
+  color: #f4eadb;
+}
+.dark .ad-information {
+  background: #191816;
+  color: #eee8df;
+}
+.dark .ad-eyebrow,
+.dark .ad-heading p span,
+.dark .ad-body h2,
+.dark .ad-body dt {
+  color: #b5aa9b;
+}
+.dark .ad-heading,
+.dark .ad-body dl div,
+.dark .ad-footer {
+  border-color: #454039;
+}
+@media (max-width: 420px) {
+  .ad-header-actions {
+    gap: 6px;
+  }
+  .ad-theme-toggle,
+  .ad-details-link {
+    font-size: 11px;
+    padding: 8px;
+  }
+}

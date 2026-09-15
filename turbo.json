@@ -3,22 +3,50 @@
   "ui": "tui",
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**"
+      ]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": [
+        "^lint"
+      ]
     },
     "format": {
-      "dependsOn": ["^format"]
+      "dependsOn": [
+        "^format"
+      ]
     },
     "typecheck": {
-      "dependsOn": ["^typecheck"]
+      "dependsOn": [
+        "^typecheck"
+      ]
     },
     "dev": {
       "cache": false,
       "persistent": true
     }
-  }
+  },
+  "globalPassThroughEnv": [
+    "NODE_ENV",
+    "MONGODB_URI",
+    "MONGODB_DB",
+    "APP_ORIGIN",
+    "ZARINPAL_MERCHANT_ID",
+    "PALETTO_DATA_FILE",
+    "PALETTO_DEMO",
+    "PALETTO_ALLOW_LOCAL_STORE",
+    "PALETTO_ADMIN_EMAIL",
+    "PALETTO_ADMIN_PASSWORD",
+    "PALETTO_MEDIA_ROOT",
+    "PALETTO_DISABLE_BUILD_CACHE"
+  ]
 }

@@ -1070,3 +1070,10 @@
     transition-duration: 1ms !important;
   }
 }
+
+/* Community navigation shares the museum header without overflowing small screens. */
+.museum-platform-link { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+@media (max-width: 640px) {
+  .museum-header-actions .museum-menu-label { min-width: 0; padding-inline: 9px; }
+  .museum-platform-link[href="/studio"] { display: none; }
+}
